@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ngx-smart-validators",
+  "allowedNonPeerDependencies": [
+    "@noble/ed25519",
+    "@noble/hashes"
+  ],
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  }
+}

@@ -1,0 +1,392 @@
+<div class="page">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#top" aria-label="ngx-smart-validators home">
+      <span class="brand__mark" aria-hidden="true">✓</span>
+      <span>ngx-smart-validators</span>
+    </a>
+    <div class="nav__links">
+      <a href="#playground">Playground</a>
+      <a href="#quick-start">Quick start</a>
+      <a href="#features">Features</a>
+    </div>
+    <a class="button button--small" href="#quick-start">Get started <span aria-hidden="true">→</span></a>
+  </nav>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="eyebrow"><span></span> Angular validation, refined</div>
+      <h1 id="hero-title">Forms that feel<br /><span>effortlessly correct.</span></h1>
+      <p class="hero__lead">
+        Production-ready validators for Angular 17–22. Typed, tree-shakeable, and
+        designed for error messages your users can actually understand.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#playground">Try the live demo</a>
+        <a class="button button--ghost" href="#quick-start">
+          <span class="mono">npm i ngx-smart-validators</span><span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="hero__proof" aria-label="Package highlights">
+        <span>◈ Angular 17–22</span><span>◇ Standalone-ready</span><span>○ Zero setup for Free</span>
+      </div>
+    </section>
+
+    <section id="playground" class="section section--demo" aria-labelledby="demo-title">
+      <div class="section__intro">
+        <span class="kicker">Interactive playground</span>
+        <h2 id="demo-title">Validation you can feel.</h2>
+        <p>Type, blur, and submit. Every state is immediate, accessible, and easy to customize.</p>
+      </div>
+
+      <div class="window">
+        <div class="window__bar">
+          <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="window__title">smart-form.component.ts</span>
+          <span class="live"><i></i> Live</span>
+        </div>
+        <div class="demo-layout">
+          <aside class="demo-sidebar">
+            <p class="demo-sidebar__label">Examples</p>
+            <button type="button" [class.active]="activeDemo === 'free'"
+              [attr.aria-pressed]="activeDemo === 'free'" (click)="selectDemo('free')">
+              <span class="sidebar-icon">✓</span>
+              <span><strong>Essential form</strong><small>Free validators</small></span>
+            </button>
+            <button type="button" [class.active]="activeDemo === 'pro'"
+              [attr.aria-pressed]="activeDemo === 'pro'" (click)="selectDemo('pro')">
+              <span class="sidebar-icon sidebar-icon--pro">✦</span>
+              <span><strong>Checkout form</strong><small>Pro validators</small></span><em>PRO</em>
+            </button>
+            <button type="button" [class.active]="activeDemo === 'catalog'"
+              [attr.aria-pressed]="activeDemo === 'catalog'" (click)="selectDemo('catalog')">
+              <span class="sidebar-icon">≡</span>
+              <span><strong>Every validator</strong><small>{{ catalogEntryCount }} live inputs</small></span>
+            </button>
+            <button type="button" [class.active]="activeDemo === 'cross'"
+              [attr.aria-pressed]="activeDemo === 'cross'" (click)="selectDemo('cross')">
+              <span class="sidebar-icon">⇄</span>
+              <span><strong>Cross-field</strong><small>Group validators</small></span>
+            </button>
+            <div class="demo-sidebar__tip">
+              <strong>Tip</strong>Errors appear after a field is touched—just like in your app.
+            </div>
+          </aside>
+
+          <div class="demo-content">
+            @if (activeDemo === 'free') {
+              <form [formGroup]="freeForm" (ngSubmit)="submitFree()" novalidate>
+                <div class="form-heading">
+                  <div><span class="pill">FREE</span><h3>Create your account</h3></div>
+                  <span>{{ freeForm.valid ? '6 / 6 valid' : 'Live validation' }}</span>
+                </div>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="free-email">Email address</label>
+                    <div class="input-wrap">
+                      <input id="free-email" type="email" formControlName="email" autocomplete="email"
+                        placeholder="you@company.com" [attr.aria-invalid]="isInvalid(freeForm.controls.email)"
+                        aria-describedby="free-email-error" />
+                      <span aria-hidden="true">{{ freeForm.controls.email.valid ? '✓' : '@' }}</span>
+                    </div>
+                    @if (isInvalid(freeForm.controls.email)) {
+                      <small id="free-email-error" class="error">{{ errorFor(freeForm.controls.email) }}</small>
+                    }
+                  </div>
+                  <div class="field">
+                    <label for="free-url">Website</label>
+                    <div class="input-wrap">
+                      <input id="free-url" type="url" formControlName="website" autocomplete="url"
+                        placeholder="https://example.com" [attr.aria-invalid]="isInvalid(freeForm.controls.website)"
+                        aria-describedby="free-url-error" /><span aria-hidden="true">↗</span>
+                    </div>
+                    @if (isInvalid(freeForm.controls.website)) {
+                      <small id="free-url-error" class="error">{{ errorFor(freeForm.controls.website) }}</small>
+                    }
+                  </div>
+                  <div class="field">
+                    <label for="free-phone">Phone <span>optional</span></label>
+                    <div class="input-wrap">
+                      <input id="free-phone" type="tel" formControlName="phone" autocomplete="tel"
+                        placeholder="+1 555 0142" [attr.aria-invalid]="isInvalid(freeForm.controls.phone)"
+                        aria-describedby="free-phone-error" /><span aria-hidden="true">⌕</span>
+                    </div>
+                    @if (isInvalid(freeForm.controls.phone)) {
+                      <small id="free-phone-error" class="error">{{ errorFor(freeForm.controls.phone) }}</small>
+                    }
+                  </div>
+                  <div class="field">
+                    <label for="free-date">Start date</label>
+                    <div class="input-wrap">
+                      <input id="free-date" type="date" formControlName="date"
+                        [attr.aria-invalid]="isInvalid(freeForm.controls.date)"
+                        aria-describedby="free-date-error" /><span aria-hidden="true">□</span>
+                    </div>
+                    @if (isInvalid(freeForm.controls.date)) {
+                      <small id="free-date-error" class="error">{{ errorFor(freeForm.controls.date) }}</small>
+                    }
+                  </div>
+                  <div class="field">
+                    <label for="free-password">Password</label>
+                    <input id="free-password" type="password" formControlName="password"
+                      autocomplete="new-password" placeholder="8+ characters"
+                      [attr.aria-invalid]="isInvalid(freeForm.controls.password)"
+                      aria-describedby="free-password-error" />
+                    @if (isInvalid(freeForm.controls.password)) {
+                      <small id="free-password-error" class="error">{{ errorFor(freeForm.controls.password) }}</small>
+                    }
+                  </div>
+                  <div class="field">
+                    <label for="free-confirm">Confirm password</label>
+                    <input id="free-confirm" type="password" formControlName="confirmPassword"
+                      autocomplete="new-password" placeholder="Repeat password"
+                      [attr.aria-invalid]="confirmPasswordInvalid()"
+                      aria-describedby="free-confirm-error" />
+                    @if (confirmPasswordInvalid()) {
+                      <small id="free-confirm-error" class="error">
+                        {{ freeForm.errors?.['matchFields'] ? 'Passwords must match.' : errorFor(freeForm.controls.confirmPassword) }}
+                      </small>
+                    }
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button class="button button--primary" type="submit">Validate form</button>
+                  <button class="text-button" type="button" (click)="resetForms()">Reset</button>
+                  @if (freeSubmitted) {
+                    <span class="form-result" [class.success]="freeForm.valid" role="status">
+                      {{ freeForm.valid ? '✓ Everything looks good.' : 'Please fix the highlighted fields.' }}
+                    </span>
+                  }
+                </div>
+              </form>
+            } @else if (activeDemo === 'pro') {
+              <form [formGroup]="proForm" (ngSubmit)="submitPro()" novalidate>
+                <div class="form-heading">
+                  <div><span class="pill pill--pro">PRO</span><h3>Secure checkout</h3></div>
+                  <span>Advanced validation</span>
+                </div>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="pro-password">Strong password</label>
+                    <input id="pro-password" type="password" formControlName="password"
+                      autocomplete="new-password" placeholder="Upper, lower, number & symbol"
+                      [attr.aria-invalid]="isInvalid(proForm.controls.password)" />
+                    @if (isInvalid(proForm.controls.password)) {
+                      <small class="error">{{ errorFor(proForm.controls.password) }}</small>
+                    }
+                  </div>
+                  <div class="field">
+                    <label for="pro-phone">International phone</label>
+                    <input id="pro-phone" type="tel" formControlName="phone" autocomplete="tel"
+                      placeholder="+44 20 7946 0958" [attr.aria-invalid]="isInvalid(proForm.controls.phone)" />
+                    @if (isInvalid(proForm.controls.phone)) {
+                      <small class="error">{{ errorFor(proForm.controls.phone) }}</small>
+                    }
+                  </div>
+                  <div class="field field--wide">
+                    <label for="pro-card">Credit card</label>
+                    <input id="pro-card" type="text" inputmode="numeric" formControlName="card"
+                      autocomplete="cc-number" placeholder="4242 4242 4242 4242"
+                      [attr.aria-invalid]="isInvalid(proForm.controls.card)" />
+                    @if (isInvalid(proForm.controls.card)) {
+                      <small class="error">{{ errorFor(proForm.controls.card) }}</small>
+                    }
+                  </div>
+                  <label class="check field--wide">
+                    <input type="checkbox" formControlName="businessAccount" />
+                    <span>I'm creating a business account</span>
+                  </label>
+                  @if (proForm.controls.businessAccount.value) {
+                    <div class="field field--wide">
+                      <label for="pro-company">Company name</label>
+                      <input id="pro-company" type="text" formControlName="company" autocomplete="organization"
+                        placeholder="Acme Inc." [attr.aria-invalid]="companyInvalid()" />
+                      @if (companyInvalid()) {
+                        <small class="error">This field is required for business accounts.</small>
+                      }
+                    </div>
+                  }
+                </div>
+                <div class="form-actions">
+                  <button class="button button--primary" type="submit">Validate checkout</button>
+                  <button class="text-button" type="button" (click)="resetForms()">Reset</button>
+                  @if (proSubmitted) {
+                    <span class="form-result" [class.success]="proForm.valid" role="status">
+                      {{ proForm.valid ? '✓ Ready to submit.' : 'Please review the form.' }}
+                    </span>
+                  }
+                </div>
+              </form>
+            } @else if (activeDemo === 'catalog') {
+              <div class="form-heading">
+                <div><span class="pill">CATALOG</span><h3>Every single-field validator</h3></div>
+                <span>{{ filteredCatalogCount }} / {{ catalogEntryCount }} shown</span>
+              </div>
+              <div class="catalog-toolbar">
+                <label class="catalog-search">
+                  <span aria-hidden="true">⌕</span>
+                  <input type="search" [value]="catalogFilter" (input)="updateCatalogFilter($event)"
+                    placeholder="Filter by name, signature, or description"
+                    aria-label="Filter validators" />
+                </label>
+                <button class="text-button" type="button" (click)="resetCatalog()">Reset all</button>
+              </div>
+
+              <form [formGroup]="catalogForm" novalidate>
+                @for (group of filteredCatalog; track group.name) {
+                  <section class="catalog-group">
+                    <h4>{{ group.name }} <span>{{ group.entries.length }}</span></h4>
+                    <div class="catalog-grid">
+                      @for (entry of group.entries; track entry.key) {
+                        <div class="catalog-card" [class.catalog-card--pro]="entry.tier === 'pro'">
+                          <div class="catalog-card__head">
+                            <code>{{ entry.signature }}</code>
+                            @if (entry.tier === 'pro') { <em class="tag tag--pro">PRO</em> }
+                            @if (entry.autoCorrect) { <em class="tag tag--auto">AUTO-FIX</em> }
+                          </div>
+                          <p>{{ entry.hint }}</p>
+                          <input [type]="entry.type ?? 'text'" [formControlName]="entry.key"
+                            [placeholder]="entry.placeholder" [id]="'catalog-' + entry.key"
+                            [attr.aria-label]="entry.key"
+                            [attr.aria-invalid]="isInvalid(catalogControl(entry))"
+                            [ngvLowercase]="entry.key === 'lowercase'"
+                            [ngvUppercase]="entry.key === 'uppercase'"
+                            [ngvUcfirst]="entry.key === 'ucfirst'"
+                            [ngvInt]="entry.key === 'int'"
+                            [ngvFloat]="entry.key === 'float'" />
+                          @if (isInvalid(catalogControl(entry))) {
+                            <small class="error">{{ catalogControl(entry).errors | ngvMessage }}</small>
+                          } @else if (isValid(catalogControl(entry))) {
+                            <small class="valid">✓ Valid</small>
+                          }
+                        </div>
+                      }
+                    </div>
+                  </section>
+                } @empty {
+                  <p class="catalog-empty">No validator matches “{{ catalogFilter }}”.</p>
+                }
+              </form>
+            } @else {
+              <div class="form-heading">
+                <div><span class="pill">CROSS-FIELD</span><h3>Validators on the form group</h3></div>
+                <span>{{ crossFieldDemos.length }} group validators</span>
+              </div>
+              <div class="cross-list">
+                @for (demo of crossFieldDemos; track demo.key) {
+                  <section class="catalog-card" [class.catalog-card--pro]="demo.tier === 'pro'"
+                    [formGroup]="crossFieldForms[demo.key]">
+                    <div class="catalog-card__head">
+                      <code>{{ demo.signature }}</code>
+                      @if (demo.tier === 'pro') { <em class="tag tag--pro">PRO</em> }
+                    </div>
+                    <p>{{ demo.hint }}</p>
+                    <div class="cross-fields">
+                      @for (field of demo.fields; track field.name) {
+                        @if (field.type === 'checkbox') {
+                          <label class="check">
+                            <input type="checkbox" [formControlName]="field.name" />
+                            <span>{{ field.label }}</span>
+                          </label>
+                        } @else {
+                          <label class="cross-field">
+                            <span>{{ field.label }}</span>
+                            <input [type]="field.type" [formControlName]="field.name"
+                              [placeholder]="field.placeholder ?? ''" />
+                          </label>
+                        }
+                      }
+                    </div>
+                    @if (crossFieldErrors(demo); as errors) {
+                      <small class="error">{{ errors | ngvMessage }}</small>
+                    } @else {
+                      <small class="valid">✓ Group is valid</small>
+                    }
+                  </section>
+                }
+              </div>
+              <div class="form-actions">
+                <button class="text-button" type="button" (click)="resetCatalog()">Reset all</button>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quick-start" class="section" aria-labelledby="quick-title">
+      <div class="section__intro">
+        <span class="kicker">Quick start</span>
+        <h2 id="quick-title">From install to validated in minutes.</h2>
+        <p>Functional validators for reactive forms, directives for templates, and one message pipe.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="step__number">01</span>
+          <div><h3>Install the package</h3><p>Add the validator toolkit to any Angular 17–22 workspace.</p></div>
+          <pre><code>{{ installCode }}</code></pre>
+        </article>
+        <article class="step">
+          <span class="step__number">02</span>
+          <div><h3>Configure once</h3><p>Register smart defaults in your standalone app config.</p></div>
+          <pre><code>{{ setupCode }}</code></pre>
+        </article>
+        <article class="step">
+          <span class="step__number">03</span>
+          <div><h3>Compose validators</h3><p>Use familiar Angular validator arrays with typed functions.</p></div>
+          <pre><code>{{ reactiveCode }}</code></pre>
+        </article>
+      </div>
+      <div class="template-card">
+        <div>
+          <span class="pill">TEMPLATE-DRIVEN</span>
+          <h3>Prefer directives? You're covered.</h3>
+          <p>Import <code>NGV_DIRECTIVES</code>, add a validator attribute, and turn errors into friendly copy with <code>NgvMessagePipe</code>.</p>
+        </div>
+        <pre><code>{{ templateExample }}</code></pre>
+      </div>
+    </section>
+
+    <section id="features" class="section section--features" aria-labelledby="feature-title">
+      <div class="section__intro">
+        <span class="kicker">The complete toolkit</span>
+        <h2 id="feature-title">Start free. Scale when forms get serious.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature"><span>✉</span><div><h3>Email</h3><p>Practical email validation without rejecting real users.</p></div><em>FREE</em></article>
+        <article class="feature"><span>↗</span><div><h3>URL</h3><p>Protocol-aware website and endpoint validation.</p></div><em>FREE</em></article>
+        <article class="feature"><span>⌕</span><div><h3>Basic phone</h3><p>Flexible international-friendly phone input.</p></div><em>FREE</em></article>
+        <article class="feature"><span>□</span><div><h3>Date</h3><p>Reliable date parsing and range-ready behavior.</p></div><em>FREE</em></article>
+        <article class="feature"><span>⇄</span><div><h3>Confirm password</h3><p>Cross-field matching that stays in sync.</p></div><em>FREE</em></article>
+        <article class="feature feature--pro"><span>✦</span><div><h3>Password strength</h3><p>Configurable policies and helpful failure reasons.</p></div><em>PRO</em></article>
+        <article class="feature feature--pro"><span>◎</span><div><h3>Advanced phone</h3><p>Region-aware validation from the optional phone entrypoint.</p></div><em>PRO</em></article>
+        <article class="feature feature--pro"><span>▰</span><div><h3>Credit card</h3><p>Luhn checks with common card-brand awareness.</p></div><em>PRO</em></article>
+        <article class="feature feature--pro"><span>⌁</span><div><h3>Required if</h3><p>Express conditional requirements without subscriptions.</p></div><em>PRO</em></article>
+      </div>
+
+      <div class="index">
+        <div class="index__head">
+          <h3>Complete reference</h3>
+          <p>All {{ totalValidatorCount }} validators ship in one package. Try any of them in the
+            <a href="#playground">playground</a>.</p>
+        </div>
+        @for (group of validatorIndex; track group.name) {
+          <div class="index__group">
+            <h4>{{ group.name }}</h4>
+            <ul>
+              @for (item of group.items; track item.key) {
+                <li [class.chip--pro]="item.tier === 'pro'">{{ item.key }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="brand"><span class="brand__mark" aria-hidden="true">✓</span><span>ngx-smart-validators</span></div>
+    <p>Small validators. Better forms. Happier users.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</div>

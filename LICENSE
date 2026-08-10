@@ -1,0 +1,84 @@
+ngx-smart-validators License Agreement
+Version 1.0, effective 9 August 2026
+
+Copyright (c) 2026 Eliran Bar. All rights reserved.
+
+This software is source-available, not open source. By using the Software you
+accept these terms.
+
+1. DEFINITIONS
+
+"Software" means the ngx-smart-validators library, source code, published npm
+packages, and documentation. "Licensor" means Eliran Bar. "Free Features" and
+"Premium Features" mean the functionality identified as such in the Software's
+documentation and source code. "License Key" means a cryptographically signed
+key issued by the Licensor. "Application" means a software product in which the
+Software is embedded and whose primary value is not the Software itself.
+
+2. FREE TIER
+
+The Licensor grants you a worldwide, royalty-free, non-exclusive, perpetual
+license to use the Free Features in any number of Applications, including
+commercial Applications, subject to Section 5. No License Key is required.
+
+3. PREMIUM TIER
+
+Premium Features require a valid License Key. Subject to payment of applicable
+fees, the Licensor grants you a non-exclusive, non-transferable license to use
+Premium Features in Applications served from the hostnames recorded in the key,
+until its expiry date.
+
+You may embed your key in Applications you control. You may not publish, sell,
+share, or distribute it for use by others. On expiry, the Software reverts to
+the Free Tier without preventing the Application from running.
+
+4. SOURCE ACCESS
+
+You may read, audit, debug, and compile the source when evaluating the Software
+or building permitted Applications. You may modify it for internal use and
+distribute modifications only inside a permitted Application. Contributions
+grant the Licensor a perpetual, worldwide, royalty-free right to use, modify,
+and relicense them.
+
+5. RESTRICTIONS
+
+You may not:
+
+5.1 Circumvent, remove, disable, or interfere with license verification or
+feature gating, including by forging keys or enabling Premium Features without
+a valid key.
+
+5.2 Distribute, publish, sublicense, sell, rent, lease, or host the Software or
+a derivative as a standalone library, component, SDK, template, or development
+tool. It may reach third parties only embedded within an Application.
+
+5.3 Use the Software to build a product that competes with it as a form
+validation component or library.
+
+5.4 Remove or obscure copyright, trademark, or license notices.
+
+6. TERMINATION
+
+This agreement terminates automatically if you breach it and do not cure the
+breach within 30 days of becoming aware of it. On termination, stop using the
+Software and remove it from Applications you distribute or operate.
+
+7. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT.
+
+8. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR CLAIMS OR DAMAGES ARISING FROM THE
+SOFTWARE. TOTAL AGGREGATE LIABILITY SHALL NOT EXCEED FEES PAID FOR THE SOFTWARE
+IN THE TWELVE MONTHS PRECEDING THE CLAIM.
+
+9. GENERAL
+
+This is the entire agreement regarding the Software. If a provision is
+unenforceable, the remainder remains effective. Third-party dependencies are
+licensed under their own terms.
+
+Commercial licensing: https://www.ebdev-design.com

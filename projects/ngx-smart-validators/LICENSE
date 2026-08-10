@@ -1,0 +1,32 @@
+ngx-smart-validators License Agreement
+Version 1.0, effective 9 August 2026
+
+Copyright (c) 2026 Eliran Bar. All rights reserved.
+
+This software is source-available, not open source. By using the Software you
+accept these terms.
+
+The free validators may be used royalty-free in any number of applications,
+including commercial applications. Pro validators require a valid signed
+License Key issued by Eliran Bar and may only be used for the hostnames and
+until the expiry date recorded in that key.
+
+You may embed your key in applications you control, but may not publish, sell,
+share, or distribute it for use by others. You may read, audit, debug, compile,
+and modify the source for internal use and for building permitted applications.
+
+You may not circumvent license verification or feature gating; distribute,
+publish, sublicense, sell, rent, lease, or host the Software or a derivative as
+a standalone library, SDK, template, or development tool; use it to build a
+competing form-validation library; or remove copyright and license notices.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR CLAIMS OR DAMAGES
+ARISING FROM THE SOFTWARE. TOTAL AGGREGATE LIABILITY SHALL NOT EXCEED FEES PAID
+FOR THE SOFTWARE IN THE TWELVE MONTHS PRECEDING THE CLAIM.
+
+The full license agreement is available in the source repository. If this
+summary conflicts with that agreement, the full agreement governs.
+
+Commercial licensing: https://www.ebdev-design.com
