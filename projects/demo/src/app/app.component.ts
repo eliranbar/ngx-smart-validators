@@ -19,8 +19,8 @@ import {
   url,
   validDate,
   ValidationMessagePipe as NgvMessagePipe,
-} from 'ngx-smart-validators';
-import { phoneNumber } from 'ngx-smart-validators/phone';
+} from '@ebdev/ngx-smart-validators';
+import { phoneNumber } from '@ebdev/ngx-smart-validators/phone';
 
 import {
   CATALOG_GROUPS,
@@ -42,6 +42,9 @@ type DemoTab = 'free' | 'pro' | 'catalog' | 'cross';
 })
 export class AppComponent {
   private readonly fb = inject(NonNullableFormBuilder);
+
+  /** Mobile nav. Collapsed into a menu below 620px, same as the marketing site. */
+  protected menuOpen = false;
 
   protected activeDemo: DemoTab = 'free';
   protected freeSubmitted = false;
@@ -136,8 +139,8 @@ export class AppComponent {
   <p>{{ errors | ngvMessage }}</p>
 }`;
 
-  protected readonly installCode = `npm install ngx-smart-validators`;
-  protected readonly setupCode = `import { provideSmartValidators } from 'ngx-smart-validators';
+  protected readonly installCode = `npm install @ebdev/ngx-smart-validators`;
+  protected readonly setupCode = `import { provideSmartValidators } from '@ebdev/ngx-smart-validators';
 
 export const appConfig: ApplicationConfig = {
   providers: [

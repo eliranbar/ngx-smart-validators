@@ -4,7 +4,7 @@ import {
   PhoneNumber,
   parsePhoneNumberFromString,
 } from 'libphonenumber-js/min';
-import { isSmartValidatorFeatureEnabled } from 'ngx-smart-validators';
+import { isSmartValidatorFeatureEnabled } from '@ebdev/ngx-smart-validators';
 
 export interface PhoneNumberValidatorOptions {
   /** Accept numbers that are possible but not confirmed valid by metadata. */

@@ -12,12 +12,15 @@ import {
   SmartValidatorsLicensePayload,
   validateSmartValidatorsLicenseClaims,
 } from './license.service';
+import { SMART_VALIDATORS_PRODUCT_ID } from './public-key';
 
 function payload(
   overrides: Partial<SmartValidatorsLicensePayload> = {},
 ): SmartValidatorsLicensePayload {
   return {
-    product: 'ngx-smart-validators',
+    // The constant, not a literal: a hardcoded copy silently turns every claim
+    // assertion below into a `product-mismatch` the day the npm name changes.
+    product: SMART_VALIDATORS_PRODUCT_ID,
     kid: 'sv-2026-08',
     plan: 'pro',
     features: [],

@@ -35,9 +35,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .brand { display: inline-flex; align-items: center; gap: 10px; font: 600 .94rem var(--display); text-decoration: none; letter-spacing: -.03em; }
 .brand__mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; color: #fff; background: var(--gradient); box-shadow: 0 8px 24px rgba(91,141,239,.26); }
-.nav__links { display: flex; gap: 28px; }
+.nav__links { display: flex; align-items: center; gap: 28px; }
 .nav__links a { color: var(--muted); font-size: .86rem; text-decoration: none; transition: color .2s; }
 .nav__links a:hover { color: var(--text); }
+/* Inside .nav__links: below 620px that group becomes the menu, so the back-link
+   travels with it instead of sitting in the bar where it was being clipped. */
+.nav__home { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  color: var(--muted); font-size: .85rem; text-decoration: none; padding: 8px 12px;
+  border: 1px solid var(--border); border-radius: 8px; transition: color .2s, border-color .2s; }
+.nav__home:hover { color: var(--text); border-color: var(--muted); }
+/* Hamburger, matching the marketing site's header. */
+.nav__toggle { display:none; background:none; border:1px solid var(--border); border-radius:8px;
+  color:var(--text); width:40px; height:40px; cursor:pointer; font-size:1.1rem; }
+.visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 0 20px;
   border: 1px solid transparent; border-radius: 10px; color: #fff; background: transparent;
@@ -183,7 +193,16 @@ pre { margin:0; overflow:auto; padding:16px 18px; border:1px solid rgba(148,163,
   .step { grid-template-columns:42px 1fr; }.step pre { grid-column:1/-1; }.template-card { grid-template-columns:1fr; }
 }
 @media (max-width: 620px) {
-  .nav { padding:0 16px; }.nav__links { display:none; }.nav .button { display:none; }.brand { font-size:.84rem; }
+  .nav { padding:0 16px; }.brand { font-size:.84rem; }
+  .nav__toggle { display:grid; place-items:center; }
+  /* Full-width panel under the bar. The links, the CTA and the back-link cannot
+     sit beside the brand at phone widths — that overflow is what clipped them. */
+  .nav__links {
+    display:none; position:absolute; inset:100% 0 auto; flex-direction:column; align-items:stretch;
+    gap:14px; padding:16px; background:var(--surface); border-bottom:1px solid var(--border); z-index:60;
+  }
+  .nav__links--open { display:flex; }
+  .nav__home { justify-content:center; }
   .hero { padding:80px 18px 72px; }.hero h1 { font-size:clamp(2.65rem,14vw,4rem); }.hero__proof { gap:12px 18px; }
   .section { padding:55px 16px; }.window__title { display:none; }.live { margin-left:auto; }
   .demo-content { padding:28px 18px; }.form-grid { grid-template-columns:1fr; }.field--wide { grid-column:auto; }

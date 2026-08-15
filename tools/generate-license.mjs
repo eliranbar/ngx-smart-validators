@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Issue an offline Ed25519 license for ngx-smart-validators.
+ * Issue an offline Ed25519 license for @ebdev/ngx-smart-validators.
  *
  * Examples:
  *   node tools/generate-license.mjs --licensee "Acme Inc" --domains "acme.com,*.acme.com"
@@ -56,7 +56,9 @@ if (args.keypair) {
 }
 
 const kid = args.kid ?? 'sv-2026-08';
-const product = args.product ?? 'ngx-smart-validators';
+// Must match SMART_VALIDATORS_PRODUCT_ID in the library: the client compares it
+// verbatim and rejects a mismatch as `product-mismatch`, valid signature or not.
+const product = args.product ?? '@ebdev/ngx-smart-validators';
 const generationKeyPath = resolve(`tools/license-private-${kid}.key`);
 const fallbackKeyPath = resolve('tools/license-private.key');
 const privateKeyPath = args['private-key']

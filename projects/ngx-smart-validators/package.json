@@ -1,9 +1,9 @@
 {
-  "name": "ngx-smart-validators",
-  "version": "0.0.1",
+  "name": "@ebdev/ngx-smart-validators",
+  "version": "0.0.3",
   "description": "Comprehensive, tree-shakeable validators for Angular reactive and template-driven forms.",
   "author": "Eliran Bar",
-  "homepage": "https://www.ebdev-design.com",
+  "homepage": "https://ngx-smart-validators.ebdev-design.com",
   "keywords": [
     "angular",
     "forms",
@@ -30,7 +30,8 @@
     "tslib": "^2.3.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "sideEffects": false
 }

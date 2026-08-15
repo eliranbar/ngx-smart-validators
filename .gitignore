@@ -7,7 +7,10 @@
 /bazel-out
 
 # Node
-/node_modules
+node_modules/
+# Library projects must not have their own install — peer deps resolve to a
+# newer Angular than the workspace and break the karma build.
+/projects/*/package-lock.json
 npm-debug.log
 yarn-error.log
 /tools/license-private*.key

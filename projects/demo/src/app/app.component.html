@@ -4,12 +4,32 @@
       <span class="brand__mark" aria-hidden="true">✓</span>
       <span>ngx-smart-validators</span>
     </a>
-    <div class="nav__links">
-      <a href="#playground">Playground</a>
-      <a href="#quick-start">Quick start</a>
-      <a href="#features">Features</a>
+    <button
+      class="nav__toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="demo-nav"
+      (click)="menuOpen = !menuOpen"
+    >
+      <span class="visually-hidden">{{ menuOpen ? 'Close' : 'Open' }} navigation</span>
+      <span aria-hidden="true">{{ menuOpen ? '✕' : '☰' }}</span>
+    </button>
+    <div id="demo-nav" class="nav__links" [class.nav__links--open]="menuOpen">
+      <a href="#playground" (click)="menuOpen = false">Playground</a>
+      <a href="#quick-start" (click)="menuOpen = false">Quick start</a>
+      <a href="#features" (click)="menuOpen = false">Features</a>
+      <a class="button button--small" href="#quick-start" (click)="menuOpen = false"
+        >Get started <span aria-hidden="true">→</span></a
+      >
+      <a
+        class="nav__home"
+        href="https://www.ebdev-design.com"
+        rel="noopener"
+        (click)="menuOpen = false"
+      >
+        ← E.B Dev &amp; Design
+      </a>
     </div>
-    <a class="button button--small" href="#quick-start">Get started <span aria-hidden="true">→</span></a>
   </nav>
 
   <main id="top">
@@ -24,7 +44,7 @@
       <div class="hero__actions">
         <a class="button button--primary" href="#playground">Try the live demo</a>
         <a class="button button--ghost" href="#quick-start">
-          <span class="mono">npm i ngx-smart-validators</span><span aria-hidden="true">↗</span>
+          <span class="mono">npm i &#64;ebdev/ngx-smart-validators</span><span aria-hidden="true">↗</span>
         </a>
       </div>
       <div class="hero__proof" aria-label="Package highlights">

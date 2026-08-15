@@ -10,11 +10,11 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
-      "ngx-smart-validators": [
-        "./dist/ngx-smart-validators"
+      "@ebdev/ngx-smart-validators": [
+        "./projects/ngx-smart-validators/src/public-api.ts"
       ],
-      "ngx-smart-validators/phone": [
-        "./dist/ngx-smart-validators/phone"
+      "@ebdev/ngx-smart-validators/phone": [
+        "./projects/ngx-smart-validators/phone/src/public-api.ts"
       ]
     },
     "esModuleInterop": true,

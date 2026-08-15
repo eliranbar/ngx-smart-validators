@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideSmartValidators } from 'ngx-smart-validators';
+import { provideSmartValidators } from '@ebdev/ngx-smart-validators';
 import { DEMO_LICENSE_KEY } from './demo-license';
 
 export const appConfig: ApplicationConfig = {

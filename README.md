@@ -1,6 +1,6 @@
 # ngx-smart-validators workspace
 
-Angular workspace for the `ngx-smart-validators` npm package and its showcase
+Angular workspace for the `@ebdev/ngx-smart-validators` npm package and its showcase
 application.
 
 ## Projects

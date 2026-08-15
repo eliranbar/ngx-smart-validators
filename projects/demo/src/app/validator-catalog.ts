@@ -46,8 +46,8 @@ import {
   uuid,
   validDate,
   withMessage,
-} from 'ngx-smart-validators';
-import { phoneNumber } from 'ngx-smart-validators/phone';
+} from '@ebdev/ngx-smart-validators';
+import { phoneNumber } from '@ebdev/ngx-smart-validators/phone';
 
 export type ValidatorTier = 'free' | 'pro';
 

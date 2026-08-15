@@ -1,4 +1,4 @@
-# ngx-smart-validators
+# @ebdev/ngx-smart-validators
 
 Comprehensive, tree-shakeable validation for Angular 17–22. It supports reactive
 forms and template-driven forms, ships readable error messages, and has no
@@ -7,7 +7,7 @@ setup requirement for the free validator set.
 ## Install
 
 ```bash
-npm install ngx-smart-validators
+npm install @ebdev/ngx-smart-validators
 ```
 
 ## Reactive forms
@@ -20,7 +20,7 @@ import {
   phone,
   requiredTrimmed,
   strictEmail,
-} from 'ngx-smart-validators';
+} from '@ebdev/ngx-smart-validators';
 
 readonly form = new FormGroup(
   {
@@ -58,7 +58,7 @@ export class ProfileComponent {}
 
 ```typescript
 import { ApplicationConfig } from '@angular/core';
-import { provideSmartValidators } from 'ngx-smart-validators';
+import { provideSmartValidators } from '@ebdev/ngx-smart-validators';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -92,7 +92,7 @@ falls back to the free tier without breaking the form.
 - `creditCard` with Luhn checking and card-brand detection, and `iban`
 - `minAge` and `maxAge`
 - `dateRange`, `requiredIf`, `atLeastOne`, and `allOrNone`
-- Accurate international `phoneNumber` from `ngx-smart-validators/phone`
+- Accurate international `phoneNumber` from `@ebdev/ngx-smart-validators/phone`
 
 Install `libphonenumber-js` when using the optional phone entry point:
 
@@ -101,7 +101,7 @@ npm install libphonenumber-js
 ```
 
 ```typescript
-import { phoneNumber } from 'ngx-smart-validators/phone';
+import { phoneNumber } from '@ebdev/ngx-smart-validators/phone';
 ```
 
 ## Error shape
@@ -125,7 +125,7 @@ global messages with `provideSmartValidators`.
 
 | Package | Supported Angular |
 | --- | --- |
-| `ngx-smart-validators` 0.x | 17, 18, 19, 20, 21, 22 |
+| `@ebdev/ngx-smart-validators` 0.x | 17, 18, 19, 20, 21, 22 |
 
 The package is published in Angular partial-Ivy format.
 

@@ -49,6 +49,6 @@ jobs:
             --defaults --skip-git --skip-install --style=css
           cd consumer
           npm install
-          npm install ../ngx-smart-validators-0.0.1.tgz libphonenumber-js
-          printf "\nimport { strictEmail } from 'ngx-smart-validators';\nimport { phoneNumber } from 'ngx-smart-validators/phone';\nvoid strictEmail;\nvoid phoneNumber;\n" >> src/main.ts
+          npm install ../ebdev-ngx-smart-validators-0.0.1.tgz libphonenumber-js
+          printf "\nimport { strictEmail } from '@ebdev/ngx-smart-validators';\nimport { phoneNumber } from '@ebdev/ngx-smart-validators/phone';\nvoid strictEmail;\nvoid phoneNumber;\n" >> src/main.ts
           npm run build
