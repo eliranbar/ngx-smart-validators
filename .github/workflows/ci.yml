@@ -38,7 +38,8 @@ jobs:
       - run: npm ci
       - run: npm run build:lib
       - name: Pack library
-        run: npm pack ./dist/ngx-smart-validators --pack-destination "$RUNNER_TEMP"
+        id: pack
+        run: echo "tarball=$(npm pack ./dist/ngx-smart-validators --pack-destination "$RUNNER_TEMP" | tail -1)" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
@@ -49,6 +50,6 @@ jobs:
             --defaults --skip-git --skip-install --style=css
           cd consumer
           npm install
-          npm install ../ebdev-ngx-smart-validators-0.0.1.tgz libphonenumber-js
+          npm install "../${{ steps.pack.outputs.tarball }}" libphonenumber-js
           printf "\nimport { strictEmail } from '@ebdev/ngx-smart-validators';\nimport { phoneNumber } from '@ebdev/ngx-smart-validators/phone';\nvoid strictEmail;\nvoid phoneNumber;\n" >> src/main.ts
           npm run build
