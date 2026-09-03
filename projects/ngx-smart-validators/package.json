@@ -3,14 +3,27 @@
   "version": "0.0.3",
   "description": "Comprehensive, tree-shakeable validators for Angular reactive and template-driven forms.",
   "author": "Eliran Bar",
-  "homepage": "https://ngx-smart-validators.ebdev-design.com",
+  "homepage": "https://www.ebdev-design.com/products/ngx-smart-validators",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliranbar/ngx-smart-validators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eliranbar/ngx-smart-validators/issues"
+  },
   "keywords": [
     "angular",
+    "angular-validators",
     "forms",
+    "form-validation",
     "validation",
     "validators",
     "reactive-forms",
-    "template-driven-forms"
+    "template-driven-forms",
+    "custom-validators",
+    "password-validator",
+    "phone-validation",
+    "cross-field-validation"
   ],
   "license": "SEE LICENSE IN LICENSE",
   "peerDependencies": {
