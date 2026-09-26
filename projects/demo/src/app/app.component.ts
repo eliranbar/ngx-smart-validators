@@ -35,7 +35,6 @@ type DemoTab = 'free' | 'pro' | 'catalog' | 'cross';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [ReactiveFormsModule, NgvMessagePipe, ...NGV_DIRECTIVES],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

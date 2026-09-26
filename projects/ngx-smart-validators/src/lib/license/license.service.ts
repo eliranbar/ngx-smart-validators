@@ -128,7 +128,7 @@ async function webCryptoVerifier(): Promise<SignatureVerifier | null> {
   try {
     await subtle.importKey(
       'spki',
-      base64ToBytes(probe.spkiB64),
+      base64ToBytes(probe.spkiB64) as BufferSource,
       { name: 'Ed25519' },
       false,
       ['verify'],
@@ -139,12 +139,17 @@ async function webCryptoVerifier(): Promise<SignatureVerifier | null> {
   return async (payload, signature, spki) => {
     const key = await subtle.importKey(
       'spki',
-      spki,
+      spki as BufferSource,
       { name: 'Ed25519' },
       false,
       ['verify'],
     );
-    return subtle.verify('Ed25519', key, signature, payload);
+    return subtle.verify(
+      'Ed25519',
+      key,
+      signature as BufferSource,
+      payload as BufferSource,
+    );
   };
 }
 
